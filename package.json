@@ -1,0 +1,22 @@
+{
+  "name": "watch-x",
+  "version": "1.0.0",
+  "description": "Zero-dependency file watching utility with advanced pattern matching and event handling",
+  "main": "src/index.js",
+  "type": "module",
+  "bin": {
+    "watch-x": "src/cli.js"
+  },
+  "scripts": {
+    "build": "node build.js",
+    "test": "node --test test/*.js",
+    "dev": "node --watch src/cli.js"
+  },
+  "keywords": ["watch", "fs", "file-watcher", "zero-dependency", "debounce", "throttle", "pattern", "events"],
+  "author": "sulthonzh",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "enginesStrict": true
+}

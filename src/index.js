@@ -312,12 +312,35 @@ class Watcher extends EventEmitter {
       return new RegExp(`^([^/]+/)*[^/]+$`);
     }
     
-    // Simple glob-like pattern matching for other patterns
-    let regex = pattern
-      .replace(/\*\*/g, '.*') // Match any directory
-      .replace(/\*/g, '[^/]*') // Match any non-slash characters
-      .replace(/\?/g, '[^/]') // Match any single non-slash character
-      .replace(/\./g, '\\.'); // Escape literal dots
+    // Convert glob pattern to regex token-by-token to avoid replacement conflicts
+    let regex = '';
+    let i = 0;
+    while (i < pattern.length) {
+      if (pattern[i] === '*' && pattern[i + 1] === '*') {
+        // ** — matches anything (including slashes)
+        if (pattern[i + 2] === '/') {
+          // **/ — optional directory prefix
+          regex += '(?:.*/)?';
+          i += 3;
+        } else {
+          regex += '.*';
+          i += 2;
+        }
+      } else if (pattern[i] === '*') {
+        // * — matches anything except slash
+        regex += '[^/]*';
+        i++;
+      } else if (pattern[i] === '?') {
+        regex += '[^/]';
+        i++;
+      } else if ('.+^$(){}|[]\\'.includes(pattern[i])) {
+        regex += '\\' + pattern[i];
+        i++;
+      } else {
+        regex += pattern[i];
+        i++;
+      }
+    }
     
     return new RegExp(`^${regex}$`);
   }

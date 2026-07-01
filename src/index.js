@@ -284,20 +284,7 @@ class Watcher extends EventEmitter {
     
     const matches = this.options.patterns.some(pattern => {
       const regex = this.patternToRegex(pattern);
-      const result = regex.test(relative);
-      
-      // Debug output
-      if (!result && this.options.patterns.includes('**/*')) {
-        console.log('Pattern mismatch:', {
-          path,
-          relative,
-          pattern,
-          regex: regex.toString(),
-          result
-        });
-      }
-      
-      return result;
+      return regex.test(relative);
     });
     
     return matches;

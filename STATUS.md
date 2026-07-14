@@ -14,7 +14,7 @@
 - [x] **Zero ESLint warnings** — N/A: zero-dep pure JS project, node:test is the gate
 - [x] **No TODO/FIXME comments in shipped code** — Verified: `grep -rn "// TODO\|// FIXME\|// HACK\|// XXX" src/` returns empty
 - [x] **At least 3 real-world examples in docs** — README shows: basic usage, pattern filtering, debouncing, CLI usage. 4+ examples.
-- [x] **CHANGELOG up to date** — Note: no CHANGELOG.md exists yet. v1.0.0 is the initial release. Recommend creating one for next release.
+- [x] **CHANGELOG up to date** — Created 2026-07-14.
 - [x] **Modern stack** — Pure Node.js (>=18), ESM, zero runtime dependencies, native `node:test` runner, native `fs.watch`
 - [x] **Unique value prop clearly stated** — Zero-dep, advanced pattern matching with negation, debouncing/throttling, rich event metadata. Distinct from chokidar (30+ deps) which is heavy for simple use cases.
 - [x] **Performance: no O(n²) loops or memory leaks** — O(n) pattern matching per file event. Watchers properly cleaned up via `close()`. No accumulating state.

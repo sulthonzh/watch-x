@@ -12,11 +12,29 @@
     "test": "node --test test/*.js",
     "dev": "node --watch src/cli.js"
   },
-  "keywords": ["watch", "fs", "file-watcher", "zero-dependency", "debounce", "throttle", "pattern", "events"],
+  "keywords": [
+    "watch",
+    "fs",
+    "file-watcher",
+    "zero-dependency",
+    "debounce",
+    "throttle",
+    "pattern",
+    "events"
+  ],
   "author": "sulthonzh",
   "license": "MIT",
   "engines": {
     "node": ">=18.0.0"
   },
-  "enginesStrict": true
+  "enginesStrict": true,
+  "files": [
+    "src/",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }

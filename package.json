@@ -24,6 +24,10 @@
   ],
   "author": "sulthonzh",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sulthonzh/watch-x.git"
+  },
   "engines": {
     "node": ">=18.0.0"
   },
